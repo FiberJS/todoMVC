@@ -1,0 +1,38 @@
+{
+  "name": "TodoMVC",
+  "version": "0.1.0",
+  "description": "TodoMVC written in FiberJS",
+  "main": "todomvc.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FiberJS/todoMVC.git"
+  },
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run"
+  },
+  "author": "Matyas Buczko",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-loader": "^0.4.5",
+    "http-server": "^0.10.0",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-expect": "^1.1.3",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "^2.0.4",
+    "mocha": "^3.4.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.4.1",
+    "patchit": "git+https://github.com/fiberjs/PatchIt.git",
+    "fiber-framework": "git+https://github.com/fiberjs/fiber-framework.git",
+    "marked": "^0.3.6"
+  }
+}
