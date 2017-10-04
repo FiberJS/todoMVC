@@ -196,10 +196,6 @@ var _todoToolbar = __webpack_require__(17);
 
 var _todoToolbar2 = _interopRequireDefault(_todoToolbar);
 
-var _events = __webpack_require__(2);
-
-var _events2 = _interopRequireDefault(_events);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Debugger
@@ -219,9 +215,6 @@ _fiber2.default.app(function () {
 
 // for debugging
 window.Fiber = _fiber2.default;
-window.NameSpace = _namespace2.default;
-
-window.Events = _events2.default;
 
 /***/ }),
 /* 5 */
@@ -278,7 +271,6 @@ var TodoComponent = function (_Fiber$DataComponent) {
         value: function init() {
             this.todos = new Map();
             this._id = 0;
-            // this.store = window.localStorage;
         }
     }, {
         key: 'listen',
@@ -364,7 +356,6 @@ var TodoComponent = function (_Fiber$DataComponent) {
     }, {
         key: 'activeCount',
         value: function activeCount() {
-            // this.storeTodos();
             var activeCount = 0;
             var _iteratorNormalCompletion2 = true;
             var _didIteratorError2 = false;
@@ -396,57 +387,6 @@ var TodoComponent = function (_Fiber$DataComponent) {
             }
 
             return activeCount;
-        }
-    }, {
-        key: 'storeTodos',
-        value: function storeTodos() {
-            var items = [];
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
-
-            try {
-                for (var _iterator3 = this.todos.values()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                    var todo = _step3.value;
-
-                    items.push(todo);
-                }
-            } catch (err) {
-                _didIteratorError3 = true;
-                _iteratorError3 = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                        _iterator3.return();
-                    }
-                } finally {
-                    if (_didIteratorError3) {
-                        throw _iteratorError3;
-                    }
-                }
-            }
-
-            this.store.setItem(TODOS_KEY, JSON.stringify(items));
-        }
-    }, {
-        key: 'loadTodos',
-        value: function loadTodos() {
-            var _this3 = this;
-
-            var todosString = this.store.getItem(TODOS_KEY);
-            if (todosString) {
-                var activeCount = 0;
-                var todos = JSON.parse(todosString);
-                todos.forEach(function (todo) {
-                    var item = new _todo2.default(todo);
-                    _this3._id = item.id;
-                    activeCount += item.completed ? 0 : 1;
-
-                    _this3.todos.set(item.id, item);
-                });
-                this.prepareList({});
-                this.on(_namespace2.default.Todo).triggerSync(new _events2.default.TodoList.ActiveCount(activeCount));
-            }
         }
     }]);
 
